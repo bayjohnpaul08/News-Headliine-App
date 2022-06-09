@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 * */
 interface NewsRepository {
 
-    suspend fun getNewsHeadline(): Resource<APIResponse> // get news to remote database
+    suspend fun getNewsHeadline(country: String, page: Int): Resource<APIResponse> // get news to remote database
     suspend fun getSearchedNews(searchQuery: String): Resource<APIResponse> // search news to remote database
     suspend fun saveNews(article: Article) // save news to local database
     suspend fun deleteNews(article: Article) // delete new to local database
