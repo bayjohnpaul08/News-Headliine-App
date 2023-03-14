@@ -3,16 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/layout_background"
+    android:background="@color/list_background"
     android:orientation="vertical"
     tools:context=".NewsFragment">
 
-    <ProgressBar
+    <LinearLayout
         android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"/>
+        android:gravity="center"
+        android:visibility="gone">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvNews"
