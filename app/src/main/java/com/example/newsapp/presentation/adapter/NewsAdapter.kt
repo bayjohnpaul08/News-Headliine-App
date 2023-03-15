@@ -37,7 +37,6 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        Log.v("jp", "size " + differ.currentList.size)
         return differ.currentList.size
     }
 
@@ -45,8 +44,8 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewViewHolder>() {
         fun bind(article: Article) {
             binding.tvTitle.text = article.title
             binding.tvDescription.text = article.description
-            binding.tvSource.text = article.source.name
             binding.tvPublishedAt.text = article.publishedAt
+            binding.tvSource.text = article.source?.name
 
             Glide.with(binding.ivArticleImage.context)
                 .load(article.urlToImage)
@@ -62,7 +61,7 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewViewHolder>() {
 
     private var onItemClickListener : ((Article) -> Unit)? = null
 
-    fun setOnItemClickListener(listener : (Article) -> Unit) {
+    fun setOnItemClickListener(listener : (Article?) -> Unit) {
         onItemClickListener = listener
     }
 }

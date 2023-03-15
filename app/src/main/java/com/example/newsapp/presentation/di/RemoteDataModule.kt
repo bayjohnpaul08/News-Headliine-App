@@ -9,13 +9,15 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
-@Module
 @InstallIn(SingletonComponent::class)
+@Module
 class RemoteDataModule {
 
     @Singleton
     @Provides
-    fun provideNewRemoteDataSource(newsAPIService: NewsAPIService): NewsRemoteDataSource {
+    fun provideNewsRemoteDataSource(
+        newsAPIService: NewsAPIService
+    ):NewsRemoteDataSource{
         return NewsRemoteDataSourceImpl(newsAPIService)
     }
 }
